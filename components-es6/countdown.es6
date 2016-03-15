@@ -50,7 +50,7 @@
 		}
 
 		render() {
-
+			
 			if (this.targetDate != null) {
 
 				let $targetDate = this.shadowRoot.querySelector('#target-date');
@@ -78,5 +78,4 @@
 	}
 
 	document.registerElement('kp-countdown', KpCountdown);
-
-});
+})();
