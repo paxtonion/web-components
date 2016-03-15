@@ -1,0 +1,9 @@
+{
+  "name": "web-components-tests",
+  "dependencies": {
+    "webcomponentsjs": "~0.7.21"
+  },
+  "devDependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}

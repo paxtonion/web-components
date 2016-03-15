@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Web Components Tests</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="./bower_components/webcomponentsjs/webcomponents.js"></script>
+	<script src="./scripts/compiled/tag-input.js"></script>
+	<script src="./scripts/compiled/star-rater.js"></script>
+	<script src="./scripts/compiled/countdown.js"></script>
+	<script src="./scripts/compiled/bs-panel.js"></script>
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<div class="page-header">
+			<h1>Web Component Tests</h1>
+		</div>
+	
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Tag Input</h3>
+			</div>
+			<div class="panel-body">
+				<kp-tag-input id="tagInput"></kp-tag-input>
+				<button id="getTagInputValue" class="btn btn-primary">Get tag input values</button>
+				<button id="setSingleTagInputValue" class="btn btn-primary">Set single tag input value</button>
+				<button id="setMultipleTagInputValue" class="btn btn-primary">Set multiple tag input values</button>
+				<button id="clearTagInputValue" class="btn btn-primary">Clear tag input values</button>
+				<script>
+					(function() {
+						document.querySelector('#getTagInputValue').addEventListener('click', function (e) {
+							
+							var $tagInput = document.querySelector('#tagInput');
+							console.log('You have selected values', $tagInput.value);
+						});
+						document.querySelector('#setSingleTagInputValue').addEventListener('click', function (e) {
+							
+							var $tagInput = document.querySelector('#tagInput');
+							$tagInput.value = 'This is a single value';
+						});
+						document.querySelector('#setMultipleTagInputValue').addEventListener('click', function (e) {
+							
+							var $tagInput = document.querySelector('#tagInput');
+							$tagInput.value = ['Apples', 'Oranges', 'Bananas'];
+						});
+						document.querySelector('#clearTagInputValue').addEventListener('click', function (e) {
+							
+							var $tagInput = document.querySelector('#tagInput');
+							$tagInput.clear();
+						});
+					})();
+				</script>
+			</div>
+		</div>
+
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Star Rater</h3>
+			</div>
+			<div class="panel-body">
+				<kp-star-rater id="starRater" max-rating="5"></kp-star-rater>
+				<button id="setStarRating" class="btn btn-primary">Set star rating to 4</button>
+				<button id="setMaxStarRating" class="btn btn-primary">Set max rating to 10</button>
+				<script>
+					(function() {
+						document.querySelector('#starRater').addEventListener('change', function (e) {
+							
+							var $starRater = document.querySelector('#starRater');
+							console.log('Star rating value changed to', $starRater.value);
+						});
+						document.querySelector('#setStarRating').addEventListener('click', function (e) {
+							
+							var $starRater = document.querySelector('#starRater');
+							$starRater.value = 4;
+						});
+						document.querySelector('#setMaxStarRating').addEventListener('click', function (e) {
+							
+							var $starRater = document.querySelector('#starRater');
+							$starRater.setAttribute('max-rating', 10);
+						});
+					})();
+				</script>
+			</div>
+		</div>
+				
+				
+		<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Countdown</h3>
+  		</div>
+  		<div class="panel-body">
+				<kp-countdown id="countdown" target="2016-03-01T13:50:00"></kp-countdown>
+				<button id="changeCountdownDate" class="btn btn-primary">Change countdown target date</button>
+				<script>
+					(function() {
+						document.querySelector('#changeCountdownDate').addEventListener('click', function (e) {
+							
+							var $starRater = document.querySelector('#countdown');
+							$starRater.setAttribute('target', '2016-04-05T12:00:00');
+						});
+					})();
+				</script>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
